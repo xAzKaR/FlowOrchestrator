@@ -20,6 +20,53 @@ Construir um MVP (Minimum Viable Product) de um sistema de consultas, começando
 
 ---
 
+
+
+## Sobre o Projeto - ROADMAP
+Este é um esboço inicial (MVP bruto), com foco total em entregar uma funcionalidade mínima usável sempre em 60 minutos para cada entrega.
+
+- ✅ Persistência em banco de dados.
+- ✅ Validações de dados.
+- ✅ Tratamento de erros refinado.
+
+Não há:
+- Autenticação/autorização.
+- Filtros de busca (Isso aqui é sempre um bicho de 7 cabeças quando tento fazer no front hahaha, vamos lá)
+- Persistência em MySQL, RDS, DynamoDB, Redis (Vamos ver o que vou conseguir inventar)
+- Front-End leve pra essa primeira etapa em React ou Kotlin Compose Web (Angular eu já conheço um pouco, então estou explorando outras tecnologias)
+- Exportação de relatórios (Geração de PDFs ou CSV com histórico de consultas)
+- Validações avançadas (Evitar conflito de horários, campos compostos, etc. O que fiz ficou um pouco furreca, então vou melhorar)
+- Testes automatizados (Testes de integração e validação de regras. Conheço MUITO de testes unitários etc, mas sei NADA em Kotlin, então vamos validar esse conhecimento)
+
+### Tudo isso será evoluído nas próximas etapas. 
+
+---
+
+## ✅ Funcionalidades Atuais
+
+### 1. Cadastro de Consultas (POST `/appointments`)
+- Armazena uma nova consulta com:
+    - Nome do paciente
+    - Data e hora no formato `yyyy-MM-ddTHH:mm`
+    - Descrição
+- Persistência via **banco de dados H2 em memória**
+- Validações aplicadas (com mensagens de erro legíveis)
+
+### 2. Listagem de Consultas (GET `/appointments`)
+- Retorna todas as consultas cadastradas até o momento
+
+### Persistência
+- Banco: **H2 (in-memory)**
+- JPA + Hibernate
+- Console web: [http://localhost:8183/h2-console](http://localhost:8183/h2-console)
+    - JDBC URL: `jdbc:h2:mem:appointmentsdb`
+
+### Validações com Bean Validation
+- `@NotBlank`, `@Pattern`, etc.
+- Erros tratados via `@ControllerAdvice` e retornados como JSON
+- Padrão de mensagens claras para facilitar o consumo por frontend
+
+
 ## Como Executar o Projeto
 
 ### 1. Clone o repositório
@@ -30,16 +77,3 @@ cd FlowOrchestrator
 ./gradlew bootRun
 
 ```
-
-## Sobre o Projeto
-Este é um esboço inicial (MVP bruto), com foco total em entregar uma funcionalidade mínima usável em 60 minutos. Não há:
-
-- Persistência em banco de dados.
-- Validações de dados.
-- Tratamento de erros refinado.
-- Autenticação/autorização.
-
-### Tudo isso será evoluído nas próximas etapas. 
-
----
-### Hoje o foco é: Funcionar. 
