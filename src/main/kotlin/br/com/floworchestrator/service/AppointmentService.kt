@@ -1,19 +1,16 @@
 package br.com.floworchestrator.service
 
 import br.com.floworchestrator.model.Appointment
+import br.com.floworchestrator.repository.AppointmentRepository
 import org.springframework.stereotype.Service
 
 @Service
-class AppointmentService {
-
-    private val appointments = mutableListOf<Appointment>()
-    private var nextId = 1L
+class AppointmentService(private val repository: AppointmentRepository) {
 
     fun createAppointment(patientName: String, dateTime: String, description: String): Appointment {
-        val appointment = Appointment(nextId++, patientName, dateTime, description)
-        appointments.add(appointment)
-        return appointment
+        val appointment = Appointment(id = 0, patientName, dateTime, description)
+        return repository.save(appointment)
     }
 
-    fun listAppointments(): List<Appointment> = appointments
+    fun listAppointments(): List<Appointment> = repository.findAll()
 }
