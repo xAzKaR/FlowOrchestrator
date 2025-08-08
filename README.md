@@ -153,20 +153,24 @@ cd FlowOrchestrator
 
 ```
 {
-"patientName": "Fulana",
-"dateTime": "2025-08-10T14:30",
-"description": "Retorno de exames"
+	"id": 5,
+	"patientName": "Fulanaura Pistoleira",
+	"dateTime": "2025-08-06T10:00",
+	"description": "Consulta de rotina"
 }
 ```
 
 ### 4. Exemplo de uso: Exportar para CSV (GET /appointments/export)
 
 ```
-{
-"patientName": "Fulana",
-"dateTime": "2025-08-10T14:30",
-"description": "Retorno de exames"
-}
+
+ID,Patient Name,Date Time,Description
+"1","Fulana Fulaneira","2025-08-06T10:00","Consulta de rotina"
+"2","Fulanada Furiosa","2025-08-06T10:00","Consulta de rotina"
+"3","Eita Fulana","2025-08-06T10:00","Consulta de rotina"
+"4","Fulanuda Furadeira","2025-08-06T10:00","Consulta de rotina"
+"5","Fulanaura Pistoleira","2025-08-06T10:00","Consulta de rotina"
+
 ```
 
 
