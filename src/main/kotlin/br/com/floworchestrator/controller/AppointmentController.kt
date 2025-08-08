@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/appointments")
-class AppointmentController (private val service: AppointmentService) {
+class AppointmentController(private val service: AppointmentService) {
 
     @PostMapping
     fun create(@Valid @RequestBody request: CreateAppointmentRequest): Appointment {
