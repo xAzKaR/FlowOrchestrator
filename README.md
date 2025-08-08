@@ -163,15 +163,12 @@ cd FlowOrchestrator
 ### 4. Exemplo de uso: Exportar para CSV (GET /appointments/export)
 
 ```
-
 ID,Patient Name,Date Time,Description
 "1","Fulana Fulaneira","2025-08-06T10:00","Consulta de rotina"
 "2","Fulanada Furiosa","2025-08-06T10:00","Consulta de rotina"
 "3","Eita Fulana","2025-08-06T10:00","Consulta de rotina"
 "4","Fulanuda Furadeira","2025-08-06T10:00","Consulta de rotina"
 "5","Fulanaura Pistoleira","2025-08-06T10:00","Consulta de rotina"
-
 ```
-
 
 ## Documentação é fundamental para a vida do software, documente!
