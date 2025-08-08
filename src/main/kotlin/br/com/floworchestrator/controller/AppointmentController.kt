@@ -16,5 +16,7 @@ class AppointmentController (private val service: AppointmentService) {
     }
 
     @GetMapping
-    fun list(): List<Appointment> = service.listAppointments()
+    fun list(@RequestParam(required = false) patientName: String?): List<Appointment> {
+        return service.listAppointments(patientName)
+    }
 }

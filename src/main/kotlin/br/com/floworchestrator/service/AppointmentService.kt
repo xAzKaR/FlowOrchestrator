@@ -12,5 +12,11 @@ class AppointmentService(private val repository: AppointmentRepository) {
         return repository.save(appointment)
     }
 
-    fun listAppointments(): List<Appointment> = repository.findAll()
+    fun listAppointments(patientName: String?): List<Appointment> {
+        return if (!patientName.isNullOrBlank()) {
+            repository.findByPatientNameContainingIgnoreCase(patientName)
+        } else {
+            repository.findAll()
+        }
+    }
 }
